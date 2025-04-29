@@ -1,0 +1,192 @@
+:root {
+  /* Light Theme */
+  --bg: #f3f0ff;
+  --text: #1e1b2e;
+  --primary: #c2a5ff;
+  --accent: #6a0dad;
+  --card-bg: #ffffff;
+}
+
+body.dark {
+  /* Dark Theme */
+  --bg: #1a132e;
+  --text: #ffffff;
+  --primary: #2e1a47;
+  --accent: #d9b3ff;
+  --card-bg: #2b1a40;
+}
+
+/* Global Settings */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: var(--bg);
+  color: var(--text);
+  transition: background 0.5s, color 0.5s;
+}
+
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 5%;
+  background: var(--primary);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+/* Logo Styling */
+.logo {
+  font-weight: 700;
+  font-size: 1.5em;
+  text-transform: uppercase;
+  color: var(--text);
+}
+
+/* Navigation */
+nav a {
+  margin: 0 15px;
+  color: var(--text);
+  text-decoration: none;
+  font-weight: 600;
+  position: relative;
+}
+
+nav a::after {
+  content: '';
+  width: 0%;
+  height: 2px;
+  background: var(--accent);
+  position: absolute;
+  left: 0;
+  bottom: -5px;
+  transition: 0.3s;
+}
+
+nav a:hover::after {
+  width: 100%;
+}
+
+#theme-toggle {
+  margin-left: 15px;
+  padding: 5px 10px;
+  border: none;
+  background: var(--accent);
+  color: #fff;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+main {
+  padding: 40px 5%;
+}
+
+section {
+  margin-bottom: 80px;
+}
+
+h2 {
+  font-size: 2em;
+  margin-bottom: 20px;
+  color: var(--accent);
+}
+
+/* Project Section */
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.project-card {
+  background: var(--card-bg);
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 5px 15px rgba(0,0,0,0.1);
+  transition: transform 0.3s;
+}
+
+.project-card:hover {
+  transform: translateY(-10px);
+}
+
+/* Skills & Certifications Grid Style */
+.skills-list, .certifications-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 15px;
+  list-style: none;
+  padding-left: 0;
+}
+
+.skills-list li, .certifications-list li {
+  background: var(--accent);
+  color: #fff;
+  padding: 12px;
+  border-radius: 5px;
+  text-align: center;
+}
+
+/* Contact Form */
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+form input, form textarea {
+  margin-bottom: 15px;
+  padding: 12px;
+  border: 1px solid var(--accent);
+  border-radius: 8px;
+  font-size: 1em;
+  background: var(--card-bg);
+  color: var(--text);
+}
+
+form button {
+  background: var(--accent);
+  color: white;
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1.1em;
+}
+
+form button:hover {
+  background: #4b0082;
+}
+
+/* Social Icons */
+.socials a,
+.social-icons a {
+  margin: 0 10px;
+  color: var(--text);
+  font-size: 24px;
+  transition: transform 0.3s, color 0.3s;
+}
+
+.socials a:hover,
+.social-icons a:hover {
+  color: var(--accent);
+  transform: scale(1.2);
+}
+
+.social-icons {
+  display: flex;
+  gap: 15px;
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 20px;
+  background: var(--primary);
+  color: var(--text);
+}
