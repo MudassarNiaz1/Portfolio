@@ -49,3 +49,18 @@ form.addEventListener('mousemove', (e) => {
   form.style.setProperty('--cursor-x', `${x}px`);
   form.style.setProperty('--cursor-y', `${y}px`);
 });
+
+// Typewriter effect for the name
+const nameText = "Mudassar Niaz"; // Your name
+const nameTarget = document.getElementById("typewriter-name");
+let nameIndex = 0;
+
+function typeName() {
+  if (nameIndex < nameText.length) {
+    nameTarget.textContent += nameText.charAt(nameIndex);
+    nameIndex++;
+    setTimeout(typeName, 150); // typing speed in ms
+  }
+}
+
+window.addEventListener("DOMContentLoaded", typeName);

@@ -44,6 +44,34 @@ body {
   text-transform: uppercase;
   color: var(--text);
 }
+.logo_1 {
+  font-weight: 700;
+  font-size: 1.5em;
+  text-transform: uppercase;
+  color: var(--text);
+  position: relative;
+  display: inline-block; /* Ensures the name and line are inline */
+  padding-bottom: 5px; /* Space for the line */
+}
+
+.logo_1::after {
+  content: "";
+  display: block;
+  height: 2px; /* The thickness of the line */
+  width: 0%; /* Initially set width to 0 */
+  background-color: var(--accent); /* Line color */
+  position: relative;
+  bottom: 0;
+  left: 0;
+  transition: width 0.3s ease-in-out; /* Smooth transition when the line appears */
+}
+
+/* When the logo is fully loaded, reveal the line */
+.logo_1.loaded::after {
+  width: 100%; /* Line takes full width */
+}
+
+
 
 nav a {
   margin: 0 15px;
