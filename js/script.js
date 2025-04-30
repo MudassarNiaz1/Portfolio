@@ -1,24 +1,51 @@
-// Theme Toggle
 // Dark mode toggle
 const toggleButton = document.getElementById('theme-toggle');
+
 toggleButton.addEventListener('click', () => {
+  // Toggle dark mode class on the body element
   document.body.classList.toggle('dark');
+  // Change button text based on current theme
   toggleButton.textContent = document.body.classList.contains('dark') ? "☀️" : "🌙";
 });
 
-
-// Scroll Reveal
+// Scroll reveal effect
 window.addEventListener('scroll', () => {
   const reveals = document.querySelectorAll('.reveal');
-  for (let i = 0; i < reveals.length; i++) {
+  
+  reveals.forEach((reveal) => {
     const windowHeight = window.innerHeight;
-    const revealTop = reveals[i].getBoundingClientRect().top;
+    const revealTop = reveal.getBoundingClientRect().top;
     const revealPoint = 150;
 
+    // Add 'active' class if the element is in view, else remove it
     if (revealTop < windowHeight - revealPoint) {
-      reveals[i].classList.add('active');
+      reveal.classList.add('active');
     } else {
-      reveals[i].classList.remove('active');
+      reveal.classList.remove('active');
     }
-  }
+  });
+});
+
+// Glowing border effect on form
+const form = document.querySelector('#contact-form');
+
+// Add glowing effect when mouse enters the form
+form.addEventListener('mouseenter', () => {
+  form.classList.add('glow');
+});
+
+// Remove glowing effect when mouse leaves the form
+form.addEventListener('mouseleave', () => {
+  form.classList.remove('glow');
+});
+
+// Track cursor position and apply custom properties for glowing effect
+form.addEventListener('mousemove', (e) => {
+  const formRect = form.getBoundingClientRect();
+  const x = e.clientX - formRect.left;
+  const y = e.clientY - formRect.top;
+
+  // Set custom CSS properties for glowing effect (adjust as needed)
+  form.style.setProperty('--cursor-x', `${x}px`);
+  form.style.setProperty('--cursor-y', `${y}px`);
 });
