@@ -11,7 +11,7 @@ toggleButton.addEventListener('click', () => {
 // Scroll reveal effect
 window.addEventListener('scroll', () => {
   const reveals = document.querySelectorAll('.reveal');
-  
+
   reveals.forEach((reveal) => {
     const windowHeight = window.innerHeight;
     const revealTop = reveal.getBoundingClientRect().top;
@@ -63,4 +63,21 @@ function typeName() {
   }
 }
 
-window.addEventListener("DOMContentLoaded", typeName);
+// Typewriter effect for the about section
+const aboutText = "AI Engineer specializing in Machine Learning, Deep Learning, NLP, and LLMs. Experienced in building and deploying end-to-end AI systems using Python, TensorFlow, and Scikit-Learn, with hands-on work in LLM applications, RAG pipelines, and AI workflows.";
+const aboutTarget = document.getElementById("typewriter-about");
+let aboutIndex = 0;
+
+function typeAbout() {
+  if (aboutIndex < aboutText.length) {
+    aboutTarget.textContent += aboutText.charAt(aboutIndex);
+    aboutIndex++;
+    setTimeout(typeAbout, 30); // faster typing speed for longer text
+  }
+}
+
+window.addEventListener("DOMContentLoaded", () => {
+  typeName();
+  // Start about section typewriter after name finishes
+  setTimeout(typeAbout, nameText.length * 150 + 500);
+});
